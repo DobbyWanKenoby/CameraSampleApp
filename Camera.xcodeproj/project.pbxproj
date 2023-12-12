@@ -9,23 +9,69 @@
 /* Begin PBXBuildFile section */
 		6511CA3F2B075B0A00D625FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA3E2B075B0A00D625FA /* AppDelegate.swift */; };
 		6511CA412B075B0A00D625FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA402B075B0A00D625FA /* SceneDelegate.swift */; };
-		6511CA432B075B0A00D625FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA422B075B0A00D625FA /* ViewController.swift */; };
-		6511CA462B075B0A00D625FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6511CA442B075B0A00D625FA /* Main.storyboard */; };
 		6511CA492B075B0A00D625FA /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA472B075B0A00D625FA /* Camera.xcdatamodeld */; };
 		6511CA4B2B075B0C00D625FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6511CA4A2B075B0C00D625FA /* Assets.xcassets */; };
 		6511CA4E2B075B0C00D625FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6511CA4C2B075B0C00D625FA /* LaunchScreen.storyboard */; };
+		6511CA632B075DC300D625FA /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA572B075DC300D625FA /* DataServices.swift */; };
+		6511CA642B075DC300D625FA /* DataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA582B075DC300D625FA /* DataRequestFactory.swift */; };
+		6511CA662B075DC300D625FA /* _exampleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA5B2B075DC300D625FA /* _exampleRequest.swift */; };
+		6511CA6C2B075DC300D625FA /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA612B075DC300D625FA /* DataRequest.swift */; };
+		6511CA6F2B075EB100D625FA /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA6E2B075EB100D625FA /* DataServiceError.swift */; };
+		6511CA722B075F2E00D625FA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA712B075F2E00D625FA /* Logger.swift */; };
+		6511CA742B075F3D00D625FA /* GlobalConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA732B075F3D00D625FA /* GlobalConfiguration.swift */; };
+		6511CA772B0762EA00D625FA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA762B0762EA00D625FA /* NetworkService.swift */; };
+		6511CA7B2B077AD100D625FA /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA7A2B077AD100D625FA /* VideoListViewController.swift */; };
+		6511CA7D2B077AE000D625FA /* VideoListAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA7C2B077AE000D625FA /* VideoListAssembler.swift */; };
+		6511CA7F2B077B0500D625FA /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA7E2B077B0500D625FA /* Common.swift */; };
+		6511CA812B077B7C00D625FA /* VideoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA802B077B7C00D625FA /* VideoListPresenter.swift */; };
+		6511CA832B077B8D00D625FA /* VideoListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA822B077B8D00D625FA /* VideoListInteractor.swift */; };
+		6511CA852B077B9C00D625FA /* VideoListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CA842B077B9C00D625FA /* VideoListRouter.swift */; };
+		65663AF52B21F9460003BDE2 /* MakeVideoAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663AF42B21F9460003BDE2 /* MakeVideoAssembler.swift */; };
+		65663AF72B21F9710003BDE2 /* MakeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663AF62B21F9710003BDE2 /* MakeVideoViewController.swift */; };
+		65663AF92B21F97C0003BDE2 /* MakeVideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663AF82B21F97C0003BDE2 /* MakeVideoPresenter.swift */; };
+		65663AFB2B21F9860003BDE2 /* MakeVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663AFA2B21F9860003BDE2 /* MakeVideoInteractor.swift */; };
+		65663AFF2B21FAAF0003BDE2 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663AFE2B21FAAF0003BDE2 /* DIContainer.swift */; };
+		65663B012B2201830003BDE2 /* MakeVideoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B002B2201830003BDE2 /* MakeVideoRouter.swift */; };
+		65663B042B2203E00003BDE2 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B032B2203E00003BDE2 /* CameraService.swift */; };
+		65663B062B23324D0003BDE2 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B052B23324D0003BDE2 /* ModuleFactory.swift */; };
+		65663B082B23466C0003BDE2 /* MakeVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B072B23466C0003BDE2 /* MakeVideoContainer.swift */; };
+		65663B0A2B2346750003BDE2 /* VideoListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B092B2346750003BDE2 /* VideoListContainer.swift */; };
+		65EBAF732B289C0E00FAF9CC /* CameraRestrictionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF722B289C0E00FAF9CC /* CameraRestrictionLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6511CA3B2B075B0A00D625FA /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6511CA3E2B075B0A00D625FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6511CA402B075B0A00D625FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6511CA422B075B0A00D625FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6511CA452B075B0A00D625FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6511CA482B075B0A00D625FA /* Camera.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Camera.xcdatamodel; sourceTree = "<group>"; };
 		6511CA4A2B075B0C00D625FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6511CA4D2B075B0C00D625FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6511CA4F2B075B0C00D625FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6511CA572B075DC300D625FA /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		6511CA582B075DC300D625FA /* DataRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequestFactory.swift; sourceTree = "<group>"; };
+		6511CA5B2B075DC300D625FA /* _exampleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _exampleRequest.swift; sourceTree = "<group>"; };
+		6511CA612B075DC300D625FA /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		6511CA6E2B075EB100D625FA /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
+		6511CA712B075F2E00D625FA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		6511CA732B075F3D00D625FA /* GlobalConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfiguration.swift; sourceTree = "<group>"; };
+		6511CA762B0762EA00D625FA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		6511CA7A2B077AD100D625FA /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		6511CA7C2B077AE000D625FA /* VideoListAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListAssembler.swift; sourceTree = "<group>"; };
+		6511CA7E2B077B0500D625FA /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		6511CA802B077B7C00D625FA /* VideoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListPresenter.swift; sourceTree = "<group>"; };
+		6511CA822B077B8D00D625FA /* VideoListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListInteractor.swift; sourceTree = "<group>"; };
+		6511CA842B077B9C00D625FA /* VideoListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListRouter.swift; sourceTree = "<group>"; };
+		65663AF42B21F9460003BDE2 /* MakeVideoAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoAssembler.swift; sourceTree = "<group>"; };
+		65663AF62B21F9710003BDE2 /* MakeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoViewController.swift; sourceTree = "<group>"; };
+		65663AF82B21F97C0003BDE2 /* MakeVideoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoPresenter.swift; sourceTree = "<group>"; };
+		65663AFA2B21F9860003BDE2 /* MakeVideoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoInteractor.swift; sourceTree = "<group>"; };
+		65663AFE2B21FAAF0003BDE2 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		65663B002B2201830003BDE2 /* MakeVideoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoRouter.swift; sourceTree = "<group>"; };
+		65663B032B2203E00003BDE2 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		65663B052B23324D0003BDE2 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		65663B072B23466C0003BDE2 /* MakeVideoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoContainer.swift; sourceTree = "<group>"; };
+		65663B092B2346750003BDE2 /* VideoListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListContainer.swift; sourceTree = "<group>"; };
+		65EBAF722B289C0E00FAF9CC /* CameraRestrictionLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRestrictionLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +104,119 @@
 		6511CA3D2B075B0A00D625FA /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				65EBAF742B289C1A00FAF9CC /* Models */,
+				6511CA782B077A5600D625FA /* Modules */,
+				6511CA702B075F2600D625FA /* Helpers */,
+				6511CA552B075D8700D625FA /* Services */,
 				6511CA3E2B075B0A00D625FA /* AppDelegate.swift */,
 				6511CA402B075B0A00D625FA /* SceneDelegate.swift */,
-				6511CA422B075B0A00D625FA /* ViewController.swift */,
-				6511CA442B075B0A00D625FA /* Main.storyboard */,
 				6511CA4A2B075B0C00D625FA /* Assets.xcassets */,
 				6511CA4C2B075B0C00D625FA /* LaunchScreen.storyboard */,
 				6511CA4F2B075B0C00D625FA /* Info.plist */,
 				6511CA472B075B0A00D625FA /* Camera.xcdatamodeld */,
+				6511CA732B075F3D00D625FA /* GlobalConfiguration.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		6511CA552B075D8700D625FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				65663B022B2203CF0003BDE2 /* CameraService */,
+				6511CA562B075DC300D625FA /* DataService */,
+				65663AFE2B21FAAF0003BDE2 /* DIContainer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6511CA562B075DC300D625FA /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				6511CA572B075DC300D625FA /* DataServices.swift */,
+				6511CA752B0762D000D625FA /* DataServiceImplementations */,
+				6511CA582B075DC300D625FA /* DataRequestFactory.swift */,
+				6511CA592B075DC300D625FA /* Requests */,
+				6511CA612B075DC300D625FA /* DataRequest.swift */,
+				6511CA6E2B075EB100D625FA /* DataServiceError.swift */,
+			);
+			path = DataService;
+			sourceTree = "<group>";
+		};
+		6511CA592B075DC300D625FA /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				6511CA5B2B075DC300D625FA /* _exampleRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		6511CA702B075F2600D625FA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6511CA712B075F2E00D625FA /* Logger.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6511CA752B0762D000D625FA /* DataServiceImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				6511CA762B0762EA00D625FA /* NetworkService.swift */,
+			);
+			path = DataServiceImplementations;
+			sourceTree = "<group>";
+		};
+		6511CA782B077A5600D625FA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				65663AF32B21F9280003BDE2 /* MakeVideoModule */,
+				6511CA792B077A6A00D625FA /* VideoListModule */,
+				6511CA7E2B077B0500D625FA /* Common.swift */,
+				65663B052B23324D0003BDE2 /* ModuleFactory.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6511CA792B077A6A00D625FA /* VideoListModule */ = {
+			isa = PBXGroup;
+			children = (
+				6511CA7C2B077AE000D625FA /* VideoListAssembler.swift */,
+				6511CA7A2B077AD100D625FA /* VideoListViewController.swift */,
+				6511CA802B077B7C00D625FA /* VideoListPresenter.swift */,
+				6511CA822B077B8D00D625FA /* VideoListInteractor.swift */,
+				6511CA842B077B9C00D625FA /* VideoListRouter.swift */,
+				65663B092B2346750003BDE2 /* VideoListContainer.swift */,
+			);
+			path = VideoListModule;
+			sourceTree = "<group>";
+		};
+		65663AF32B21F9280003BDE2 /* MakeVideoModule */ = {
+			isa = PBXGroup;
+			children = (
+				65663AF42B21F9460003BDE2 /* MakeVideoAssembler.swift */,
+				65663AF62B21F9710003BDE2 /* MakeVideoViewController.swift */,
+				65663AF82B21F97C0003BDE2 /* MakeVideoPresenter.swift */,
+				65663AFA2B21F9860003BDE2 /* MakeVideoInteractor.swift */,
+				65663B002B2201830003BDE2 /* MakeVideoRouter.swift */,
+				65663B072B23466C0003BDE2 /* MakeVideoContainer.swift */,
+			);
+			path = MakeVideoModule;
+			sourceTree = "<group>";
+		};
+		65663B022B2203CF0003BDE2 /* CameraService */ = {
+			isa = PBXGroup;
+			children = (
+				65663B032B2203E00003BDE2 /* CameraService.swift */,
+			);
+			path = CameraService;
+			sourceTree = "<group>";
+		};
+		65EBAF742B289C1A00FAF9CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65EBAF722B289C0E00FAF9CC /* CameraRestrictionLevel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +279,6 @@
 			files = (
 				6511CA4E2B075B0C00D625FA /* LaunchScreen.storyboard in Resources */,
 				6511CA4B2B075B0C00D625FA /* Assets.xcassets in Resources */,
-				6511CA462B075B0A00D625FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +289,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6511CA632B075DC300D625FA /* DataServices.swift in Sources */,
 				6511CA492B075B0A00D625FA /* Camera.xcdatamodeld in Sources */,
-				6511CA432B075B0A00D625FA /* ViewController.swift in Sources */,
+				65663B042B2203E00003BDE2 /* CameraService.swift in Sources */,
+				65663B012B2201830003BDE2 /* MakeVideoRouter.swift in Sources */,
+				6511CA7D2B077AE000D625FA /* VideoListAssembler.swift in Sources */,
+				6511CA642B075DC300D625FA /* DataRequestFactory.swift in Sources */,
+				65663AF52B21F9460003BDE2 /* MakeVideoAssembler.swift in Sources */,
+				6511CA832B077B8D00D625FA /* VideoListInteractor.swift in Sources */,
+				65663AFF2B21FAAF0003BDE2 /* DIContainer.swift in Sources */,
+				6511CA7B2B077AD100D625FA /* VideoListViewController.swift in Sources */,
+				6511CA722B075F2E00D625FA /* Logger.swift in Sources */,
+				6511CA6C2B075DC300D625FA /* DataRequest.swift in Sources */,
+				65663AF92B21F97C0003BDE2 /* MakeVideoPresenter.swift in Sources */,
+				6511CA742B075F3D00D625FA /* GlobalConfiguration.swift in Sources */,
+				65663B082B23466C0003BDE2 /* MakeVideoContainer.swift in Sources */,
+				6511CA662B075DC300D625FA /* _exampleRequest.swift in Sources */,
 				6511CA3F2B075B0A00D625FA /* AppDelegate.swift in Sources */,
+				65663B0A2B2346750003BDE2 /* VideoListContainer.swift in Sources */,
+				6511CA852B077B9C00D625FA /* VideoListRouter.swift in Sources */,
+				65663B062B23324D0003BDE2 /* ModuleFactory.swift in Sources */,
+				65EBAF732B289C0E00FAF9CC /* CameraRestrictionLevel.swift in Sources */,
+				6511CA6F2B075EB100D625FA /* DataServiceError.swift in Sources */,
+				6511CA772B0762EA00D625FA /* NetworkService.swift in Sources */,
+				65663AF72B21F9710003BDE2 /* MakeVideoViewController.swift in Sources */,
+				65663AFB2B21F9860003BDE2 /* MakeVideoInteractor.swift in Sources */,
+				6511CA7F2B077B0500D625FA /* Common.swift in Sources */,
+				6511CA812B077B7C00D625FA /* VideoListPresenter.swift in Sources */,
 				6511CA412B075B0A00D625FA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +323,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6511CA442B075B0A00D625FA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6511CA452B075B0A00D625FA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6511CA4C2B075B0C00D625FA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -299,9 +463,9 @@
 				DEVELOPMENT_TEAM = 34E923QGF6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Camera/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Create video content";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -327,9 +491,9 @@
 				DEVELOPMENT_TEAM = 34E923QGF6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Camera/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Create video content";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
