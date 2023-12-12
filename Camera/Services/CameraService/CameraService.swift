@@ -5,6 +5,7 @@ protocol ICameraService {
     var previewLayer: AVCaptureVideoPreviewLayer { get }
     func requestAccess() async -> Bool
     func setupSession() throws
+    func stopSession()
 }
 
 final class CameraService: ICameraService {
@@ -40,6 +41,10 @@ final class CameraService: ICameraService {
         previewLayer.session = captureSession
         captureSession.commitConfiguration()
         captureSession.startRunning()
+    }
+    
+    func stopSession() {
+        captureSession.stopRunning()
     }
     
     func captureVideo() {

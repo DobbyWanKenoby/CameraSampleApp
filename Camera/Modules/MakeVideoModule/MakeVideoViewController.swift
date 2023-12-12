@@ -39,10 +39,14 @@ final class MakeVideoViewController: UIViewController, IMakeVideoView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .black
         
         presenter.configureView()
         layoutElements()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.onCloseScreen()
     }
     
     private func layoutElements() {
@@ -56,7 +60,7 @@ final class MakeVideoViewController: UIViewController, IMakeVideoView {
     }
     
     func addPreviewLayer(_ layer: AVCaptureVideoPreviewLayer) {
-        view.layer.addSublayer(layer)
+        view.layer.insertSublayer(layer, at: 0)
         layer.frame = view.bounds
     }
 }

@@ -1,6 +1,7 @@
 protocol IMakeVideoPresenter: ModulePresenter {
     func configureView()
     func onTapCloseButton()
+    func onCloseScreen()
 }
 
 final class MakeVideoPresenter: IMakeVideoPresenter {
@@ -15,15 +16,25 @@ final class MakeVideoPresenter: IMakeVideoPresenter {
     }
     
     func configureView() {
-        do {
-            let previewLayer = try interactor.startCaptureSession()
-            view?.addPreviewLayer(previewLayer)
-        } catch {
-            // TODO: Обработать ошибку
+        Task {
+            do {
+                let previewLayer = try await interactor.startCaptureSession()
+                await MainActor.run {
+                    view?.addPreviewLayer(previewLayer)
+                }
+            } catch {
+                // TODO: Обработать ошибку
+            }
         }
     }
     
     func onTapCloseButton() {
         router.dismiss(controller: view)
+    }
+    
+    func onCloseScreen() {
+        Task {
+            await interactor.stopCaptureSession()
+        }
     }
 }

@@ -2,7 +2,8 @@ import AVFoundation
 
 protocol IMakeVideoInteractor: ModuleInteractor {
     init(cameraService: ICameraService)
-    func startCaptureSession() throws -> AVCaptureVideoPreviewLayer
+    func startCaptureSession() async throws -> AVCaptureVideoPreviewLayer
+    func stopCaptureSession() async
 }
 
 final class MakeVideoInteractor: IMakeVideoInteractor {
@@ -17,9 +18,13 @@ final class MakeVideoInteractor: IMakeVideoInteractor {
         self.cameraService = cameraService
     }
     
-    func startCaptureSession() throws -> AVCaptureVideoPreviewLayer {
+    func startCaptureSession() async throws -> AVCaptureVideoPreviewLayer {
         try cameraService.setupSession()
         return cameraService.previewLayer
+    }
+    
+    func stopCaptureSession() async {
+        cameraService.stopSession()
     }
 
 }
