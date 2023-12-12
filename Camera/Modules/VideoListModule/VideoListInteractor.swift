@@ -1,15 +1,12 @@
 import AVFoundation
 
 protocol IVideoListInteractor: ModuleInteractor {
-    var navigationBarTitle: String { get }
     var cameraRestrictionLevel: CameraRestrictionLevel { get async }
 }
 
 final class VideoListInteractor: IVideoListInteractor {
     private var cameraService: ICameraService
     weak var presenter: IVideoListPresenter?
-    
-    let navigationBarTitle = String(localized: "Ваши видео")
     
     init(cameraService: ICameraService) {
         self.cameraService = cameraService

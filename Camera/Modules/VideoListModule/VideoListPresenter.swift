@@ -1,6 +1,6 @@
 protocol IVideoListPresenter: ModulePresenter {
     func configureView()
-    func onTapAddVideoButton()
+    func onTapAddVideoButton() async
 }
 
 enum VideoListDestination {
@@ -18,20 +18,19 @@ final class VideoListPresenter: IVideoListPresenter {
     }
     
     func configureView() {
-        view?.configureNavigationBar(withTitle: interactor.navigationBarTitle)
+        view?.configureNavigationBar()
     }
     
-    func onTapAddVideoButton() {
-        Task { @MainActor in
-            switch await interactor.cameraRestrictionLevel {
-            case .allow:
-                go(to: .makeVideo)
-            case .denied:
-                    view?.showAlert(title: String(localized: "Внимание"),
-                                    message: String(localized: "Доступ к камере ограничен. Экран создания видео не может быть открыт"),
-                                    additionalActionTitle: "Перейти к настройкам") { [weak self] in
-                        self?.router.goToAppSettings()
-                    }
+    @MainActor
+    func onTapAddVideoButton() async {
+        switch await interactor.cameraRestrictionLevel {
+        case .allow:
+            go(to: .makeVideo)
+        case .denied:
+            view?.showAlert(title: String(localized: "Внимание"),
+                            message: String(localized: "Доступ к камере ограничен. Экран создания видео не может быть открыт"),
+                            additionalActionTitle: "Перейти к настройкам") { [weak self] in
+                self?.router.goToAppSettings()
             }
         }
     }

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol IVideoListView: ModuleView {
-    func configureNavigationBar(withTitle: String)
+    func configureNavigationBar()
     func showAlert(title: String, message: String, additionalActionTitle: String?, additionalActionHandler: (() -> Void)?)
 }
 
@@ -25,11 +25,13 @@ final class VideoListViewController: UIViewController, IVideoListView {
         presenter.configureView()
     }
     
-    func configureNavigationBar(withTitle title: String) {
+    func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = title
+        navigationItem.title = String(localized: "Ваши видео")
         let action = UIAction { [self] _ in
-            self.presenter.onTapAddVideoButton()
+            Task {
+                await self.presenter.onTapAddVideoButton()
+            }
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: action)
     }
