@@ -23,6 +23,7 @@ final class MakeVideoPresenter: IMakeVideoPresenter {
                     view?.addPreviewLayer(previewLayer)
                 }
             } catch {
+                debug(.bussinesLogic, message: "Capture session cant be run")
                 // TODO: Обработать ошибку
             }
         }

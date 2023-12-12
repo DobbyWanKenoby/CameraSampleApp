@@ -28,6 +28,7 @@ final class CameraService: ICameraService {
     }
     
     func setupSession() throws {
+        debug(.bussinesLogic, message: "Capture session will be run")
         captureSession.beginConfiguration()
         guard let videoDevice = AVCaptureDevice.default(for: .video) else { return }
         let input = try AVCaptureDeviceInput(device: videoDevice)
@@ -41,10 +42,12 @@ final class CameraService: ICameraService {
         previewLayer.session = captureSession
         captureSession.commitConfiguration()
         captureSession.startRunning()
+        debug(.bussinesLogic, message: "Capture session was run")
     }
     
     func stopSession() {
         captureSession.stopRunning()
+        debug(.bussinesLogic, message: "Capture session stopped")
     }
     
     func captureVideo() {
