@@ -9,7 +9,15 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    private let diContainer: IDIContainer = DIContainer(cameraService: CameraService())
+    
+    
+    private let diContainer: IDIContainer = DIContainer(cameraService: CameraService(),
+                                                        routeService: { 
+            let service = RouterService()
+            service.route(to: .makeVideo)
+            return service
+    }()
+    )
     private lazy var assemblersFactory = ModuleFactory(diContainer: diContainer)
 
     var window: UIWindow?

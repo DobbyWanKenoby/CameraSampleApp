@@ -18,7 +18,8 @@ final class VideoListAssembler: IVideoListAssembler {
     
     func assembly() -> UIViewController {
         let interactor = VideoListInteractor(cameraService: diContainer.cameraService)
-        let router = VideoListRouter(makeVideoAssembler: diContainer.makeVideoAssembler)
+        let router = VideoListRouter(routerService: diContainer.routeService,
+                                     makeVideoAssembler: diContainer.makeVideoAssembler)
         
         let presenter = VideoListPresenter(interactor: interactor, router: router)
         

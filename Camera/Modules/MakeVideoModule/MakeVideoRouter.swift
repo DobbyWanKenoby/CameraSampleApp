@@ -1,28 +1,42 @@
-import UIKit
+import UIKit.UIViewController
+import Combine
 
 // MARK: - Interface
 
 protocol IMakeVideoRouter: IModuleRouter {
-    func dismiss(controller: UIViewController?)
+    func routeBack()
 }
 
 // MARK: - Implemetation
 
 final class MakeVideoRouter: IMakeVideoRouter {
-    weak var presenter: IMakeVideoPresenter?
-    weak var navigationController: UINavigationController?
+    weak var presenter: IMakeVideoPresenter? = nil
+    var routerSubscription: AnyCancellable?
     
-    init() {
-        navigationController = nil
-        presenter = nil
+    // Dependencies
+    let routerService: IRouterService
+    
+    init(routerService: IRouterService) {
+        self.routerService = routerService
     }
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        presenter = nil
-    }
-    
-    func dismiss(controller: UIViewController?) {
-        controller?.dismiss(animated: true)
+    func routeBack() {
+        routerService.route(to: .videoList)
     }
 }
+
+// MARK: - App Router
+
+enum MakeVideoEndpoint: Endpoint {
+    case cameraPreview
+}
+
+extension MakeVideoRouter: RouteComplitable {
+    func route(to endpoint: MakeVideoEndpoint?) {
+        switch endpoint {
+        case .cameraPreview: return
+        default: return
+        }
+    }
+}
+

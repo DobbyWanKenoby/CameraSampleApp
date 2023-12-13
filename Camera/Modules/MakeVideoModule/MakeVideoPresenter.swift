@@ -33,7 +33,7 @@ final class MakeVideoPresenter<Interactor: IMakeVideoInteractor, Router: IMakeVi
     }
     
     func onTapCloseButton() {
-        router.dismiss(controller: view)
+        router.routeBack()
     }
     
     func onCloseScreen() {

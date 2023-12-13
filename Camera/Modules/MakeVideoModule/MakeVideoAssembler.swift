@@ -18,7 +18,7 @@ final class MakeVideoAssembler: IMakeVideoAssembler {
     
     func assembly() -> UIViewController {
         let interactor = MakeVideoInteractor(cameraService: diContainer.cameraService)
-        let router = MakeVideoRouter()
+        let router = MakeVideoRouter(routerService: diContainer.routerService)
         
         let presenter = MakeVideoPresenter(interactor: interactor, router: router)
         

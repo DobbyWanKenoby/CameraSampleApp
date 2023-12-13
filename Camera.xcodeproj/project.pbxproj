@@ -39,6 +39,7 @@
 		65EBAF732B289C0E00FAF9CC /* CameraRestrictionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF722B289C0E00FAF9CC /* CameraRestrictionLevel.swift */; };
 		65EBAF812B28DC9700FAF9CC /* CameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF802B28DC9700FAF9CC /* CameraTests.swift */; };
 		65EBAF882B28E29300FAF9CC /* VideoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF872B28E29300FAF9CC /* VideoListPresenter.swift */; };
+		65EBAF8B2B29A63C00FAF9CC /* RouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF8A2B29A63C00FAF9CC /* RouterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		65EBAF7E2B28DC9700FAF9CC /* CameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EBAF802B28DC9700FAF9CC /* CameraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTests.swift; sourceTree = "<group>"; };
 		65EBAF872B28E29300FAF9CC /* VideoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListPresenter.swift; sourceTree = "<group>"; };
+		65EBAF8A2B29A63C00FAF9CC /* RouterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		6511CA552B075D8700D625FA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				65EBAF892B29A62400FAF9CC /* RouterService */,
 				65663B022B2203CF0003BDE2 /* CameraService */,
 				6511CA562B075DC300D625FA /* DataService */,
 				65663AFE2B21FAAF0003BDE2 /* DIContainer.swift */,
@@ -268,6 +271,14 @@
 			path = CameraTests;
 			sourceTree = "<group>";
 		};
+		65EBAF892B29A62400FAF9CC /* RouterService */ = {
+			isa = PBXGroup;
+			children = (
+				65EBAF8A2B29A63C00FAF9CC /* RouterService.swift */,
+			);
+			path = RouterService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +391,7 @@
 				6511CA7B2B077AD100D625FA /* VideoListViewController.swift in Sources */,
 				6511CA722B075F2E00D625FA /* Logger.swift in Sources */,
 				6511CA6C2B075DC300D625FA /* DataRequest.swift in Sources */,
+				65EBAF8B2B29A63C00FAF9CC /* RouterService.swift in Sources */,
 				65663AF92B21F97C0003BDE2 /* MakeVideoPresenter.swift in Sources */,
 				6511CA742B075F3D00D625FA /* GlobalConfiguration.swift in Sources */,
 				65663B082B23466C0003BDE2 /* MakeVideoDependencyContainer.swift in Sources */,

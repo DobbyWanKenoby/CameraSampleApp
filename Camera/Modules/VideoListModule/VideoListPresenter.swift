@@ -5,10 +5,6 @@ protocol IVideoListPresenter: IModulePresenter {
     func onTapAddVideoButton() async
 }
 
-enum VideoListDestination {
-    case makeVideo
-}
-
 // MARK: - Implemetation
 
 final class VideoListPresenter<Interactor: IVideoListInteractor, Router: IVideoListRouter>: IVideoListPresenter {
@@ -22,6 +18,7 @@ final class VideoListPresenter<Interactor: IVideoListInteractor, Router: IVideoL
     }
     
     func configureView() {
+        router.handleEndpointIfNeeded()
         view?.configureNavigationBar()
     }
     
@@ -29,20 +26,13 @@ final class VideoListPresenter<Interactor: IVideoListInteractor, Router: IVideoL
     func onTapAddVideoButton() async {
         switch await interactor.cameraAccess {
         case .allow:
-            go(to: .makeVideo)
+            router.routeToMakeVideo()
         case .denied:
             view?.showAlert(title: String(localized: "Внимание"),
                             message: String(localized: "Доступ к камере ограничен. Экран создания видео не может быть открыт"),
                             additionalActionTitle: "Перейти к настройкам") { [weak self] in
-                self?.router.goToAppSettings()
+                self?.router.routeToAppSettings()
             }
-        }
-    }
-    
-    private func go(to destination: VideoListDestination) {
-        switch destination {
-        case .makeVideo:
-            router.goToMakeVideo()
         }
     }
 }
