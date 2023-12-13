@@ -1,11 +1,21 @@
 import UIKit
 import AVFoundation
 
-protocol IMakeVideoView: ModuleView {
+// MARK: - Interface
+
+protocol IMakeVideoView: IModuleView {
     func addPreviewLayer(_: AVCaptureVideoPreviewLayer)
 }
 
-final class MakeVideoViewController: UIViewController, IMakeVideoView {
+extension IMakeVideoView {
+    func addPreviewLayer(_: AVCaptureVideoPreviewLayer) {}
+}
+
+// MARK: - Implementation
+
+final class MakeVideoViewController<Presenter: IMakeVideoPresenter>: UIViewController {
+    
+    var presenter: IMakeVideoPresenter
     
     private lazy var closeButton: UIButton = {
         var buttonConfiguration = UIButton.Configuration.plain()
@@ -26,9 +36,7 @@ final class MakeVideoViewController: UIViewController, IMakeVideoView {
         return button
     }()
     
-    var presenter: IMakeVideoPresenter
-    
-    init(presenter: IMakeVideoPresenter) {
+    init(presenter: Presenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -58,20 +66,12 @@ final class MakeVideoViewController: UIViewController, IMakeVideoView {
         ])
         
     }
-    
+}
+
+extension MakeVideoViewController: IMakeVideoView {
     func addPreviewLayer(_ layer: AVCaptureVideoPreviewLayer) {
         view.layer.insertSublayer(layer, at: 0)
         layer.frame = view.bounds
-    }
-}
-
-final class PrevieweView: UIView {
-    override class var layerClass: AnyClass {
-        AVCaptureVideoPreviewLayer.self
-    }
-    
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-        layer as! AVCaptureVideoPreviewLayer
     }
 }
 

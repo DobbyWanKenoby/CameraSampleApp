@@ -34,8 +34,8 @@
 		65663B012B2201830003BDE2 /* MakeVideoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B002B2201830003BDE2 /* MakeVideoRouter.swift */; };
 		65663B042B2203E00003BDE2 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B032B2203E00003BDE2 /* CameraService.swift */; };
 		65663B062B23324D0003BDE2 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B052B23324D0003BDE2 /* ModuleFactory.swift */; };
-		65663B082B23466C0003BDE2 /* MakeVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B072B23466C0003BDE2 /* MakeVideoContainer.swift */; };
-		65663B0A2B2346750003BDE2 /* VideoListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B092B2346750003BDE2 /* VideoListContainer.swift */; };
+		65663B082B23466C0003BDE2 /* MakeVideoDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B072B23466C0003BDE2 /* MakeVideoDependencyContainer.swift */; };
+		65663B0A2B2346750003BDE2 /* VideoListDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65663B092B2346750003BDE2 /* VideoListDependencyContainer.swift */; };
 		65EBAF732B289C0E00FAF9CC /* CameraRestrictionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF722B289C0E00FAF9CC /* CameraRestrictionLevel.swift */; };
 		65EBAF812B28DC9700FAF9CC /* CameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF802B28DC9700FAF9CC /* CameraTests.swift */; };
 		65EBAF882B28E29300FAF9CC /* VideoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EBAF872B28E29300FAF9CC /* VideoListPresenter.swift */; };
@@ -81,8 +81,8 @@
 		65663B002B2201830003BDE2 /* MakeVideoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoRouter.swift; sourceTree = "<group>"; };
 		65663B032B2203E00003BDE2 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		65663B052B23324D0003BDE2 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
-		65663B072B23466C0003BDE2 /* MakeVideoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoContainer.swift; sourceTree = "<group>"; };
-		65663B092B2346750003BDE2 /* VideoListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListContainer.swift; sourceTree = "<group>"; };
+		65663B072B23466C0003BDE2 /* MakeVideoDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVideoDependencyContainer.swift; sourceTree = "<group>"; };
+		65663B092B2346750003BDE2 /* VideoListDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListDependencyContainer.swift; sourceTree = "<group>"; };
 		65EBAF722B289C0E00FAF9CC /* CameraRestrictionLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRestrictionLevel.swift; sourceTree = "<group>"; };
 		65EBAF7E2B28DC9700FAF9CC /* CameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EBAF802B28DC9700FAF9CC /* CameraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTests.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 				6511CA802B077B7C00D625FA /* VideoListPresenter.swift */,
 				6511CA822B077B8D00D625FA /* VideoListInteractor.swift */,
 				6511CA842B077B9C00D625FA /* VideoListRouter.swift */,
-				65663B092B2346750003BDE2 /* VideoListContainer.swift */,
+				65663B092B2346750003BDE2 /* VideoListDependencyContainer.swift */,
 			);
 			path = VideoListModule;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 				65663AF82B21F97C0003BDE2 /* MakeVideoPresenter.swift */,
 				65663AFA2B21F9860003BDE2 /* MakeVideoInteractor.swift */,
 				65663B002B2201830003BDE2 /* MakeVideoRouter.swift */,
-				65663B072B23466C0003BDE2 /* MakeVideoContainer.swift */,
+				65663B072B23466C0003BDE2 /* MakeVideoDependencyContainer.swift */,
 			);
 			path = MakeVideoModule;
 			sourceTree = "<group>";
@@ -382,10 +382,10 @@
 				6511CA6C2B075DC300D625FA /* DataRequest.swift in Sources */,
 				65663AF92B21F97C0003BDE2 /* MakeVideoPresenter.swift in Sources */,
 				6511CA742B075F3D00D625FA /* GlobalConfiguration.swift in Sources */,
-				65663B082B23466C0003BDE2 /* MakeVideoContainer.swift in Sources */,
+				65663B082B23466C0003BDE2 /* MakeVideoDependencyContainer.swift in Sources */,
 				6511CA662B075DC300D625FA /* _exampleRequest.swift in Sources */,
 				6511CA3F2B075B0A00D625FA /* AppDelegate.swift in Sources */,
-				65663B0A2B2346750003BDE2 /* VideoListContainer.swift in Sources */,
+				65663B0A2B2346750003BDE2 /* VideoListDependencyContainer.swift in Sources */,
 				6511CA852B077B9C00D625FA /* VideoListRouter.swift in Sources */,
 				65663B062B23324D0003BDE2 /* ModuleFactory.swift in Sources */,
 				65EBAF732B289C0E00FAF9CC /* CameraRestrictionLevel.swift in Sources */,

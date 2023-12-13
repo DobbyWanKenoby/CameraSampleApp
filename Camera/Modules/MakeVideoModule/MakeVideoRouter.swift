@@ -1,8 +1,12 @@
 import UIKit
 
-protocol IMakeVideoRouter: ModuleRouter {
+// MARK: - Interface
+
+protocol IMakeVideoRouter: IModuleRouter {
     func dismiss(controller: UIViewController?)
 }
+
+// MARK: - Implemetation
 
 final class MakeVideoRouter: IMakeVideoRouter {
     weak var presenter: IMakeVideoPresenter?

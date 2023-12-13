@@ -1,9 +1,13 @@
-protocol IVideoListContainer {
+// MARK: - Interface
+
+protocol IVideoListDependencyContainer {
     var cameraService: ICameraService { get }
     var makeVideoAssembler: IMakeVideoAssembler { get }
 }
 
-final class VideoListContainer: IVideoListContainer {
+// MARK: - Implemetation
+
+final class VideoListContainer: IVideoListDependencyContainer {
     let cameraService: ICameraService
     let makeVideoAssembler: IMakeVideoAssembler
     

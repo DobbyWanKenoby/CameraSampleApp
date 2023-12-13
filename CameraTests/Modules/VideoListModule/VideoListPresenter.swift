@@ -19,7 +19,7 @@ extension CameraTests {
     }
     
     private final class Interactor: IVideoListInteractor {
-        var cameraRestrictionLevel: Camera.CameraRestrictionLevel {
+        var cameraAccess: CameraAccess {
             .denied
         }
     }

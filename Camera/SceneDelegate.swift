@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         let navigationController = UINavigationController()
         let rootModuleAssembler = assemblersFactory.videoListAssembler
-        let rootViewController = rootModuleAssembler.assembly(usingNavigationController: navigationController)
+        let rootViewController = rootModuleAssembler.assembly()
         navigationController.viewControllers = [rootViewController]
         window.rootViewController = navigationController
         self.window = window

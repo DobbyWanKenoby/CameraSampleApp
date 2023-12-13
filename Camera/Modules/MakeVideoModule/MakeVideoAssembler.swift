@@ -1,18 +1,22 @@
 import UIKit
 
+// MARK: - Interface
+
 protocol IMakeVideoAssembler {
-    func assembly(usingNavigationController navigationController: UINavigationController?) -> UIViewController
+    func assembly() -> UIViewController
 }
+
+// MARK: - Implemetation
 
 final class MakeVideoAssembler: IMakeVideoAssembler {
     
-    private var diContainer: IMakeVideoContainer
+    private var diContainer: IMakeVideoDependencyContainer
     
-    init(diContainer: IMakeVideoContainer) {
+    init(diContainer: IMakeVideoDependencyContainer) {
         self.diContainer = diContainer
     }
     
-    func assembly(usingNavigationController navigationController: UINavigationController? = nil) -> UIViewController {
+    func assembly() -> UIViewController {
         let interactor = MakeVideoInteractor(cameraService: diContainer.cameraService)
         let router = MakeVideoRouter()
         

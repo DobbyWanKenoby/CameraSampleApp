@@ -1,26 +1,28 @@
 import UIKit.UINavigationController
 import UIKit.UIApplication
 
-protocol IVideoListRouter: ModuleRouter {
+// MARK: - Interface
+
+protocol IVideoListRouter: IModuleRouter {
     func goToMakeVideo()
     func goToAppSettings()
 }
 
+// MARK: - Implemetation
+
 final class VideoListRouter: IVideoListRouter {
     weak var presenter: IVideoListPresenter? = nil
-    weak var navigationController: UINavigationController?
+    weak var view: IModuleView? = nil
     private let makeVideoAssembler: IMakeVideoAssembler
     
-    init(navigationController: UINavigationController?,
-         makeVideoAssembler: IMakeVideoAssembler) {
-        self.navigationController = navigationController
+    init(makeVideoAssembler: IMakeVideoAssembler) {
         self.makeVideoAssembler = makeVideoAssembler
     }
     
     func goToMakeVideo() {
-        let view = makeVideoAssembler.assembly(usingNavigationController: navigationController)
-        view.modalPresentationStyle = .fullScreen
-        navigationController?.present(view, animated: true)
+        let newScreen = makeVideoAssembler.assembly()
+        newScreen.modalPresentationStyle = .fullScreen
+        self.view?.navigationController?.topViewController?.present(newScreen, animated: true)
     }
     
     func goToAppSettings() {

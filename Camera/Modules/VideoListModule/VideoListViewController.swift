@@ -1,15 +1,23 @@
 import UIKit
 
-protocol IVideoListView: ModuleView {
+// MARK: - Interface
+
+protocol IVideoListView: IModuleView {
     func configureNavigationBar()
     func showAlert(title: String, message: String, additionalActionTitle: String?, additionalActionHandler: (() -> Void)?)
 }
 
-final class VideoListViewController: UIViewController, IVideoListView {
+extension IVideoListView {
+    func configureNavigationBar() {}
+    func showAlert(title: String, message: String, additionalActionTitle: String?, additionalActionHandler: (() -> Void)?) {}
+}
+
+// MARK: - Implemetation
+
+final class VideoListViewController<Presenter: IVideoListPresenter> : UIViewController {
+    private var presenter: Presenter
     
-    var presenter: IVideoListPresenter
-    
-    init(presenter: IVideoListPresenter) {
+    init(presenter: Presenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,7 +32,9 @@ final class VideoListViewController: UIViewController, IVideoListView {
         
         presenter.configureView()
     }
-    
+}
+
+extension VideoListViewController: IVideoListView {
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = String(localized: "Ваши видео")
@@ -46,5 +56,4 @@ final class VideoListViewController: UIViewController, IVideoListView {
         }
         self.present(controller, animated: true)
     }
-    
 }

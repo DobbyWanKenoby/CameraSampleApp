@@ -1,21 +1,24 @@
 import UIKit
 
+// MARK: - Interface
+
 protocol IVideoListAssembler {
-    func assembly(usingNavigationController navigationController: UINavigationController?) -> UIViewController
+    func assembly() -> UIViewController
 }
+
+// MARK: - Implemetation
 
 final class VideoListAssembler: IVideoListAssembler {
 
-    private let diContainer: IVideoListContainer
+    private let diContainer: IVideoListDependencyContainer
     
-    init(diContainer: IVideoListContainer) {
+    init(diContainer: IVideoListDependencyContainer) {
         self.diContainer = diContainer
     }
     
-    func assembly(usingNavigationController navigationController: UINavigationController?) -> UIViewController {
+    func assembly() -> UIViewController {
         let interactor = VideoListInteractor(cameraService: diContainer.cameraService)
-        let router = VideoListRouter(navigationController: navigationController,
-                                     makeVideoAssembler: diContainer.makeVideoAssembler)
+        let router = VideoListRouter(makeVideoAssembler: diContainer.makeVideoAssembler)
         
         let presenter = VideoListPresenter(interactor: interactor, router: router)
         
@@ -24,6 +27,7 @@ final class VideoListAssembler: IVideoListAssembler {
         
         let viewController = VideoListViewController(presenter: presenter)
         presenter.view = viewController
+        router.view = viewController
         
         interactor.presenter = presenter
         

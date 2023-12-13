@@ -1,11 +1,11 @@
 import UIKit
 
-protocol ModuleView: UIViewController {}
-protocol ModulePresenter: AnyObject {}
-protocol ModuleInteractor: AnyObject {}
-protocol ModuleRouter: AnyObject {}
+protocol IModuleView: UIViewController {}
+protocol IModulePresenter: AnyObject {}
+protocol IModuleInteractor: AnyObject {}
+protocol IModuleRouter: AnyObject {}
 
-extension ModuleView {
+extension IModuleView {
     var viewController: UIViewController {
         self
     }

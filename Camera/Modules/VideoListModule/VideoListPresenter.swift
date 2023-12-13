@@ -1,4 +1,6 @@
-protocol IVideoListPresenter: ModulePresenter {
+// MARK: - Interface
+
+protocol IVideoListPresenter: IModulePresenter {
     func configureView()
     func onTapAddVideoButton() async
 }
@@ -7,12 +9,14 @@ enum VideoListDestination {
     case makeVideo
 }
 
-final class VideoListPresenter: IVideoListPresenter {
-    let router: IVideoListRouter
-    let interactor: IVideoListInteractor
-    weak var view: IVideoListView?
+// MARK: - Implemetation
+
+final class VideoListPresenter<Interactor: IVideoListInteractor, Router: IVideoListRouter>: IVideoListPresenter {
+    let router: Router
+    let interactor: Interactor
+    weak var view: (any IVideoListView)?
     
-    init(interactor: IVideoListInteractor, router: IVideoListRouter) {
+    init(interactor: Interactor, router: Router) {
         self.interactor = interactor
         self.router = router
     }
@@ -23,7 +27,7 @@ final class VideoListPresenter: IVideoListPresenter {
     
     @MainActor
     func onTapAddVideoButton() async {
-        switch await interactor.cameraRestrictionLevel {
+        switch await interactor.cameraAccess {
         case .allow:
             go(to: .makeVideo)
         case .denied:

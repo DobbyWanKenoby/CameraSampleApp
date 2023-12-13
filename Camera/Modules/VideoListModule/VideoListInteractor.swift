@@ -1,8 +1,12 @@
 import AVFoundation
 
-protocol IVideoListInteractor: ModuleInteractor {
-    var cameraRestrictionLevel: CameraRestrictionLevel { get async }
+// MARK: - Interface
+
+protocol IVideoListInteractor: IModuleInteractor {
+    var cameraAccess: CameraAccess { get async }
 }
+
+// MARK: - Implemetation
 
 final class VideoListInteractor: IVideoListInteractor {
     private var cameraService: ICameraService
@@ -12,7 +16,7 @@ final class VideoListInteractor: IVideoListInteractor {
         self.cameraService = cameraService
     }
     
-    var cameraRestrictionLevel: CameraRestrictionLevel {
+    var cameraAccess: CameraAccess {
         get async {
             switch cameraService.currentAccess {
             case .notDetermined: await cameraService.requestAccess() ? .allow : .denied

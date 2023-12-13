@@ -1,16 +1,19 @@
-protocol IMakeVideoPresenter: ModulePresenter {
+// MARK: - Interface
+
+protocol IMakeVideoPresenter: IModulePresenter {
     func configureView()
     func onTapCloseButton()
     func onCloseScreen()
 }
 
-final class MakeVideoPresenter: IMakeVideoPresenter {
-    
-    let router: IMakeVideoRouter
-    let interactor: IMakeVideoInteractor
+// MARK: - Implemetation
+
+final class MakeVideoPresenter<Interactor: IMakeVideoInteractor, Router: IMakeVideoRouter>: IMakeVideoPresenter {
+    let router: Router
+    let interactor: Interactor
     weak var view: IMakeVideoView?
     
-    init(interactor: IMakeVideoInteractor, router: IMakeVideoRouter) {
+    init(interactor: Interactor, router: Router) {
         self.interactor = interactor
         self.router = router
     }

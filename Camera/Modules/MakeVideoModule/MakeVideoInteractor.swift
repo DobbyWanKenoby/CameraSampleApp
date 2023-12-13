@@ -1,10 +1,14 @@
 import AVFoundation
 
-protocol IMakeVideoInteractor: ModuleInteractor {
+// MARK: - Interface
+
+protocol IMakeVideoInteractor: IModuleInteractor {
     init(cameraService: ICameraService)
     func startCaptureSession() async throws -> AVCaptureVideoPreviewLayer
     func stopCaptureSession() async
 }
+
+// MARK: - Implemetation
 
 final class MakeVideoInteractor: IMakeVideoInteractor {
     private var cameraService: ICameraService

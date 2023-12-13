@@ -1,8 +1,12 @@
-protocol IMakeVideoContainer {
+// MARK: - Interface
+
+protocol IMakeVideoDependencyContainer {
     var cameraService: ICameraService { get }
 }
 
-final class MakeVideoContainer: IMakeVideoContainer {
+// MARK: - Implemetation
+
+final class MakeVideoContainer: IMakeVideoDependencyContainer {
     let cameraService: ICameraService
     
     init(cameraService: ICameraService) {
