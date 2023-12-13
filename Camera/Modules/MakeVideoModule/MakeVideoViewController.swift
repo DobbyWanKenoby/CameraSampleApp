@@ -3,12 +3,12 @@ import AVFoundation
 
 // MARK: - Interface
 
-protocol IMakeVideoView: IModuleView {
-    func addPreviewLayer(_: AVCaptureVideoPreviewLayer)
+@MainActor protocol IMakeVideoView: IModuleView {
+    func updatePreviewLayer(_: AVCaptureVideoPreviewLayer)
 }
 
 extension IMakeVideoView {
-    func addPreviewLayer(_: AVCaptureVideoPreviewLayer) {}
+    func updatePreviewLayer(_: AVCaptureVideoPreviewLayer) {}
 }
 
 // MARK: - Implementation
@@ -16,6 +16,8 @@ extension IMakeVideoView {
 final class MakeVideoViewController<Presenter: IMakeVideoPresenter>: UIViewController {
     
     var presenter: IMakeVideoPresenter
+    
+    private var lastPreviewLayer: CALayer? = nil
     
     private lazy var closeButton: UIButton = {
         var buttonConfiguration = UIButton.Configuration.plain()
@@ -26,9 +28,36 @@ final class MakeVideoViewController<Presenter: IMakeVideoPresenter>: UIViewContr
         var imageConfiguration = UIImage.SymbolConfiguration(pointSize: 30)
         var image = UIImage(systemName:  "xmark.circle.fill", withConfiguration: imageConfiguration)
         buttonConfiguration.image = image
+        buttonConfiguration.baseForegroundColor = .white.withAlphaComponent(0.7)
         
         let button = UIButton(configuration: buttonConfiguration)
-        button.addAction(UIAction { [self] _ in self.presenter.onTapCloseButton() }, for: .primaryActionTriggered)
+        button.addAction(UIAction { [self] _ in
+            self.presenter.didTapCloseButton()
+        }, for: .primaryActionTriggered)
+        
+        button.tintColor = .black.withAlphaComponent(0.7)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var reverseCameraButton: UIButton = {
+        var buttonConfiguration = UIButton.Configuration.plain()
+        buttonConfiguration.buttonSize = .large
+        buttonConfiguration.cornerStyle = .medium
+        buttonConfiguration.contentInsets = .zero
+        
+        var imageConfiguration = UIImage.SymbolConfiguration(pointSize: 30)
+        var image = UIImage(systemName:  "arrow.up.arrow.down.circle.fill", withConfiguration: imageConfiguration)
+        buttonConfiguration.image = image
+        buttonConfiguration.baseForegroundColor = .white.withAlphaComponent(0.7)
+        
+        let button = UIButton(configuration: buttonConfiguration)
+        button.addAction(UIAction { [self] _ in
+            Task {
+                await self.presenter.didTapReverseCameraButton()
+            }
+        }, for: .primaryActionTriggered)
         
         button.tintColor = .black.withAlphaComponent(0.7)
         
@@ -61,22 +90,25 @@ final class MakeVideoViewController<Presenter: IMakeVideoPresenter>: UIViewContr
     
     private func layoutElements() {
         view.addSubview(closeButton)
-        
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             closeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10)
+        ])
+        
+        view.addSubview(reverseCameraButton)
+        NSLayoutConstraint.activate([
+            reverseCameraButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            reverseCameraButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
         ])
         
     }
 }
 
 extension MakeVideoViewController: IMakeVideoView {
-    func addPreviewLayer(_ layer: AVCaptureVideoPreviewLayer) {
+    func updatePreviewLayer(_ layer: AVCaptureVideoPreviewLayer) {
+        lastPreviewLayer?.removeFromSuperlayer()
         view.layer.insertSublayer(layer, at: 0)
         layer.frame = view.bounds
+        lastPreviewLayer = layer
     }
 }
-
-//#Preview {
-//    MakeVideoViewController(presenter: MakeVideoPresenter(interactor: MakeVideoInteractor(di: DependencyContainer()), router: MakeVideoRouter()))
-//}

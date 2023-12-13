@@ -2,13 +2,15 @@
 
 protocol IMakeVideoPresenter: IModulePresenter {
     func configureView() async
-    func onTapCloseButton()
+    func didTapCloseButton()
+    func didTapReverseCameraButton() async
     func onCloseScreen()
 }
 
 extension IMakeVideoPresenter {
     func configureView() async {}
     func onTapCloseButton() {}
+    func didTapReverseCameraButton() async {}
     func onCloseScreen() {}
 }
 
@@ -26,18 +28,28 @@ final class MakeVideoPresenter<Interactor: IMakeVideoInteractor, Router: IMakeVi
     
     func configureView() async {
         do {
-            let previewLayer = try await interactor.startCaptureSession()
-            await MainActor.run {
-                view?.addPreviewLayer(previewLayer)
+            guard let previewLayer = try await interactor.startCaptureSession() else {
+                return
+                // TODO: Заменить на throw с локальной ошибкой
             }
+            await view?.updatePreviewLayer(previewLayer)
         } catch {
             debug(.bussinesLogic, message: "Capture session cant be run")
             // TODO: Обработать ошибку
         }
     }
     
-    func onTapCloseButton() {
+    func didTapCloseButton() {
         router.routeBack()
+    }
+    
+    func didTapReverseCameraButton() async {
+        do {
+            guard let previewLayer = try await interactor.reverseCamera() else { return }
+            await view?.updatePreviewLayer(previewLayer)
+        } catch {
+            // TODO: Обработать ошибку
+        }
     }
     
     func onCloseScreen() {

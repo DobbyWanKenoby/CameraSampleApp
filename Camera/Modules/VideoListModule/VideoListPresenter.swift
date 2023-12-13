@@ -28,7 +28,7 @@ final class VideoListPresenter<Interactor: IVideoListInteractor, Router: IVideoL
     }
     
     @MainActor
-    func onTapAddVideoButton() async {
+    func didTapAddVideoButton() async {
         switch await interactor.cameraAccess {
         case .allow:
             router.routeToMakeVideo()
