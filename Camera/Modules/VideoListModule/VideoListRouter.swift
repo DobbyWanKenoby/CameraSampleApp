@@ -10,6 +10,12 @@ protocol IVideoListRouter: IModuleRouter {
     func handleEndpointIfNeeded()
 }
 
+extension IVideoListRouter {
+    func routeToMakeVideo() {}
+    func routeToAppSettings() {}
+    func handleEndpointIfNeeded() {}
+}
+
 // MARK: - Implemetation
 
 final class VideoListRouter: IVideoListRouter {

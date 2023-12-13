@@ -49,7 +49,9 @@ final class MakeVideoViewController<Presenter: IMakeVideoPresenter>: UIViewContr
         super.viewDidLoad()
         view.backgroundColor = .black
         
-        presenter.configureView()
+        Task.detached {
+            await self.presenter.configureView()
+        }
         layoutElements()
     }
     

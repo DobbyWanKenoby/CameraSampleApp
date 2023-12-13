@@ -7,6 +7,10 @@ protocol IMakeVideoRouter: IModuleRouter {
     func routeBack()
 }
 
+extension IMakeVideoRouter {
+    func routeBack() {}
+}
+
 // MARK: - Implemetation
 
 final class MakeVideoRouter: IMakeVideoRouter {

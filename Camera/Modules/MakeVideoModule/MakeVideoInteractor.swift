@@ -8,6 +8,13 @@ protocol IMakeVideoInteractor: IModuleInteractor {
     func stopCaptureSession() async
 }
 
+extension IMakeVideoInteractor {
+    func startCaptureSession() async throws -> AVCaptureVideoPreviewLayer {
+        .init()
+    }
+    func stopCaptureSession() async {}
+}
+
 // MARK: - Implemetation
 
 final class MakeVideoInteractor: IMakeVideoInteractor {

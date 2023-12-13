@@ -6,6 +6,8 @@ protocol IVideoListInteractor: IModuleInteractor {
     var cameraAccess: CameraAccess { get async }
 }
 
+extension IVideoListInteractor {}
+
 // MARK: - Implemetation
 
 final class VideoListInteractor: IVideoListInteractor {

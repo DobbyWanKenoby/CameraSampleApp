@@ -24,17 +24,14 @@ extension CameraTests {
         }
     }
     
-    private final class Router: IVideoListRouter {
+    private final class Router: IVideoListRouter {        
         func goToMakeVideo() {
             XCTFail("Wrong route logic")
         }
-        
-        func goToAppSettings() { }
     }
     
     private final class View: UIViewController, IVideoListView {
         var showAlertDidCall = false
-        func configureNavigationBar() {}
         
         func showAlert(title: String, message: String, additionalActionTitle: String?, additionalActionHandler: (() -> Void)?) {
             showAlertDidCall = true

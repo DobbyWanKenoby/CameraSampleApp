@@ -40,7 +40,7 @@ extension VideoListViewController: IVideoListView {
         navigationItem.title = String(localized: "Ваши видео")
         let action = UIAction { [self] _ in
             Task {
-                await self.presenter.onTapAddVideoButton()
+                await self.presenter.didTapAddVideoButton()
             }
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: action)

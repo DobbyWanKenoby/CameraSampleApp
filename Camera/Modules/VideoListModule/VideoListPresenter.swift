@@ -2,7 +2,12 @@
 
 protocol IVideoListPresenter: IModulePresenter {
     func configureView()
-    func onTapAddVideoButton() async
+    func didTapAddVideoButton() async
+}
+
+extension IVideoListPresenter {
+    func configureView() {}
+    func didTapAddVideoButton() async {}
 }
 
 // MARK: - Implemetation

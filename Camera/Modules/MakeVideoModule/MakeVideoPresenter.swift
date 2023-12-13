@@ -1,9 +1,15 @@
 // MARK: - Interface
 
 protocol IMakeVideoPresenter: IModulePresenter {
-    func configureView()
+    func configureView() async
     func onTapCloseButton()
     func onCloseScreen()
+}
+
+extension IMakeVideoPresenter {
+    func configureView() async {}
+    func onTapCloseButton() {}
+    func onCloseScreen() {}
 }
 
 // MARK: - Implemetation
@@ -18,17 +24,15 @@ final class MakeVideoPresenter<Interactor: IMakeVideoInteractor, Router: IMakeVi
         self.router = router
     }
     
-    func configureView() {
-        Task {
-            do {
-                let previewLayer = try await interactor.startCaptureSession()
-                await MainActor.run {
-                    view?.addPreviewLayer(previewLayer)
-                }
-            } catch {
-                debug(.bussinesLogic, message: "Capture session cant be run")
-                // TODO: Обработать ошибку
+    func configureView() async {
+        do {
+            let previewLayer = try await interactor.startCaptureSession()
+            await MainActor.run {
+                view?.addPreviewLayer(previewLayer)
             }
+        } catch {
+            debug(.bussinesLogic, message: "Capture session cant be run")
+            // TODO: Обработать ошибку
         }
     }
     
