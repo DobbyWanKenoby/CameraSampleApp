@@ -1,15 +1,8 @@
-//
-//  SceneDelegate.swift
-//  Camera
-//
-//  Created by v.usov on 17.11.2023.
-//
+// TODO: Add app life cycle observation at service
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
-    
     
     private let diContainer: IDIContainer = DIContainer(cameraService: CameraService(),
                                                         routeService: RouterService())

@@ -6,7 +6,7 @@ protocol IMakeVideoInteractor: IModuleInteractor {
     init(cameraService: ICameraService)
     func startCaptureSession() async throws -> AVCaptureVideoPreviewLayer?
     func stopCaptureSession() async
-    func reverseCamera() async throws -> AVCaptureVideoPreviewLayer?
+    func reverseCamera() async throws
 }
 
 extension IMakeVideoInteractor {
@@ -28,14 +28,15 @@ final class MakeVideoInteractor: IMakeVideoInteractor {
     
     func startCaptureSession() async throws -> AVCaptureVideoPreviewLayer? {
         try await cameraService.setupSession()
+        return cameraService.previewLayer
     }
     
     func stopCaptureSession() async {
         cameraService.stopSession()
     }
     
-    func reverseCamera() async throws -> AVCaptureVideoPreviewLayer? {
-        return try await cameraService.setCameraPosition(to: cameraService.currentCameraPosition.next)
+    func reverseCamera() async throws {
+        try await cameraService.setCameraPosition(to: cameraService.currentCameraPosition.next)
     }
 
 }

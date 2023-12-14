@@ -45,8 +45,7 @@ final class MakeVideoPresenter<Interactor: IMakeVideoInteractor, Router: IMakeVi
     
     func didTapReverseCameraButton() async {
         do {
-            guard let previewLayer = try await interactor.reverseCamera() else { return }
-            await view?.updatePreviewLayer(previewLayer)
+            try await interactor.reverseCamera()
         } catch {
             // TODO: Обработать ошибку
         }
