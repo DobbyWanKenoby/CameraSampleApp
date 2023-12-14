@@ -4,9 +4,9 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    private let diContainer: IDIContainer = DIContainer(cameraService: CameraService(),
+    private let serviceLocator: IGlobalServiceLocator = GlobalServiceLocator(cameraService: CameraService(),
                                                         routeService: RouterService())
-    private lazy var assemblersFactory = ModuleFactory(diContainer: diContainer)
+    private lazy var assemblersFactory = ModuleFactory(diContainer: IGlobalServiceLocator)
 
     var window: UIWindow?
 

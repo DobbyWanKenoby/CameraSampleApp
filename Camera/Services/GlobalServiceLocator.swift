@@ -1,9 +1,9 @@
-protocol IDIContainer: AnyObject {
+protocol IGlobalServiceLocator: AnyObject {
     var cameraService: ICameraService { get }
     var routeService: IRouterService { get }
 }
 
-final class DIContainer: IDIContainer {
+final class GlobalServiceLocator: IGlobalServiceLocator {
     let cameraService: ICameraService
     let routeService: IRouterService
     

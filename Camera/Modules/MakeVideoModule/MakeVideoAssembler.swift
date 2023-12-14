@@ -10,15 +10,15 @@ protocol IMakeVideoAssembler {
 
 final class MakeVideoAssembler: IMakeVideoAssembler {
     
-    private var diContainer: IMakeVideoDependencyContainer
+    private var serviceLocator: IMakeVideoServiceLocator
     
-    init(diContainer: IMakeVideoDependencyContainer) {
-        self.diContainer = diContainer
+    init(serviceLocator: IMakeVideoServiceLocator) {
+        self.serviceLocator = serviceLocator
     }
     
     func assembly() -> UIViewController {
-        let interactor = MakeVideoInteractor(cameraService: diContainer.cameraService)
-        let router = MakeVideoRouter(routerService: diContainer.routerService)
+        let interactor = MakeVideoInteractor(cameraService: serviceLocator.cameraService)
+        let router = MakeVideoRouter(routerService: serviceLocator.routerService)
         
         let presenter = MakeVideoPresenter(interactor: interactor, router: router)
         

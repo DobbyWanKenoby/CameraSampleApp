@@ -1,13 +1,13 @@
 // MARK: - Interface
 
-protocol IMakeVideoDependencyContainer {
+protocol IMakeVideoServiceLocator {
     var routerService: IRouterService { get }
     var cameraService: ICameraService { get }
 }
 
 // MARK: - Implemetation
 
-final class MakeVideoContainer: IMakeVideoDependencyContainer {
+final class MakeVideoServiceLocator: IMakeVideoServiceLocator {
     var routerService: IRouterService
     let cameraService: ICameraService
     

@@ -10,16 +10,16 @@ protocol IVideoListAssembler {
 
 final class VideoListAssembler: IVideoListAssembler {
 
-    private let diContainer: IVideoListDependencyContainer
+    private let serviceLocator: IVideoListServiceLocator
     
-    init(diContainer: IVideoListDependencyContainer) {
-        self.diContainer = diContainer
+    init(serviceLocator: IVideoListServiceLocator) {
+        self.serviceLocator = serviceLocator
     }
     
     func assembly() -> UIViewController {
-        let interactor = VideoListInteractor(cameraService: diContainer.cameraService)
-        let router = VideoListRouter(routerService: diContainer.routeService,
-                                     makeVideoAssembler: diContainer.makeVideoAssembler)
+        let interactor = VideoListInteractor(cameraService: serviceLocator.cameraService)
+        let router = VideoListRouter(routerService: serviceLocator.routeService,
+                                     makeVideoAssembler: serviceLocator.makeVideoAssembler)
         
         let presenter = VideoListPresenter(interactor: interactor, router: router)
         

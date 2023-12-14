@@ -1,6 +1,6 @@
 // MARK: - Interface
 
-protocol IVideoListDependencyContainer {
+protocol IVideoListServiceLocator {
     var routeService: IRouterService { get }
     var cameraService: ICameraService { get }
     var makeVideoAssembler: IMakeVideoAssembler { get }
@@ -8,7 +8,7 @@ protocol IVideoListDependencyContainer {
 
 // MARK: - Implemetation
 
-final class VideoListContainer: IVideoListDependencyContainer {
+final class VideoListServiceLocator: IVideoListServiceLocator {
     let routeService: IRouterService
     let cameraService: ICameraService
     let makeVideoAssembler: IMakeVideoAssembler
